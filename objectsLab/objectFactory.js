@@ -3,7 +3,7 @@ function factory (library, orders) {
     const result = []
 
     for (let order of orders) {
-        
+
         const object = {}
 
         for (let prop in order.template) {
@@ -13,10 +13,12 @@ function factory (library, orders) {
         const parts = order.parts
 
         for (let part of parts) {
-            object[part] = library[parts]
+            object[part] = library[part]
         }
+        result.push(object)
     }
 
+    return result
 }
 
 
