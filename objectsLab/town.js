@@ -4,7 +4,7 @@ function town (townList) {
     for (const town of townList) {
         const details = town.split(' <-> ')
         const name = details[0]
-        const pop = details[1]
+        let pop = Number(details[1])
 
         if (result[name] != undefined) {
             pop += result[name]
@@ -12,9 +12,11 @@ function town (townList) {
         result[name] = pop
     } 
 
-    console.log(result)
-}
+    for (const ration in result) {
+        console.log(`${ration} : ${result[ration]}`)
+    }
 
+}
 town (['Istanbul <-> 100000',
 'Honk Kong <-> 2100004',
 'Jerusalem <-> 2352344',
