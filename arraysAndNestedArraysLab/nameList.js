@@ -4,4 +4,4 @@ nameList = (array) => {
         console.log(`${n}.${array[n - 1]}`)
     }
 }
-nameList(["John", "Bob", "Christina", "Ema"])
+nameList(["John", "Bob", "Christina", "Ema", "alpha"])
