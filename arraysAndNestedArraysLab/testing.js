@@ -1,5 +1,3 @@
-let array = [1, 2, 3]
-array.reverse()
-console.log(array)
+const array = [a, b, c, A, B, C];
 array.sort()
 console.log(array)
