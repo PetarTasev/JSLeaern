@@ -1,5 +1,5 @@
 let array = [1, 2, 3]
+array.reverse()
 console.log(array)
-let thing = array.pop()
-console.log(thing)
+array.sort()
 console.log(array)
