@@ -17,7 +17,7 @@ function factory (library, orders) {
         }
         result.push(object)
     }
-
+    console.log(result)
     return result
 }
 
