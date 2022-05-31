@@ -1,5 +1,5 @@
 nameList = (array) => {
-    array.sort();
+    array.sort((a,b) => a.localeCompare(b));
     for (let n = 1; n <= array.length; n++) {
         console.log(`${n}.${array[n - 1]}`)
     }
