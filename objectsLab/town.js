@@ -24,3 +24,7 @@ town (['Istanbul <-> 100000',
 'Istanbul <-> 1000']
 
 )
+
+if (true) {
+    console.log("questionableTest")
+}
