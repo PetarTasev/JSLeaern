@@ -52,3 +52,21 @@ color: 'grey',
 carriage: 'coupe',
 wheelsize: 17 }
 )
+
+
+// you create a array of objects that contain all the types
+// of engines and then you use the function fillter to select
+// the right one 
+// engine: engines.filter(e => e.power >= wantedCar.power) [0]
+// engines besing the engine library and 'e' beaing the given 
+// engines, you echeck if the power of sed engines if big 
+// enough for the needed capacoty and the follter fucntion 
+// is like a for cicle in the array with the () folowing 
+// being a lambda that talles them the specificartions
+// also the [0] that was placed was there to tell the fucntion
+// to return only one element aka a array with the index 0 
+// because if its now that way this function will return a 
+// array filled with all the elements that folow the one we need 
+// ohhhhhhhhhhh so the function is returning all the lements 
+// that follow we just call our of the bat we call index 0
+// and thats why we get a value not a array full of objects

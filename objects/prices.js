@@ -27,3 +27,9 @@ price (
 'New York | Sample Product | 1000.1',
 'New York | Burger | 10']
 ) 
+
+// 51min in the lecture if your dumb enough not you figure it out
+
+// when iterating a array with "for element in object" element
+// is the key now the whole thing so you can call the whole
+// object again on that key and thats how you make the magin happen
