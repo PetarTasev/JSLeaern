@@ -1,14 +1,17 @@
-sortingNumber = (array) => {
-    array.sort()
-    var half = Math.floor(array.length)
-    let firstpart = array
+function sortingNumber (array)  {
+    let final = [];
+    array.sort((a,b) => b - a);
+
+    while(array.length !== 0) {
+        final.push(array.pop());
+        final.push(array.shift());
+        
+    }
+    return final
+   
 }
 sortingNumber ([1, 65, 3, 52, 48, 63, 31, -3, 18, 56])
 
-
-function sortNumber (array) {
-array 
-}
 
 // make a while cicly and just make a new array and push 
 // into it be using push and pop of the orrgininal array and 
