@@ -2,9 +2,9 @@ function heros (array) {
     const finalObject = []
     for (const hero of array) {
         let [name, level, items] = (hero.split(' / '))
-        level = +level
-        items = items.split(", ")
-        finalObject.push({name, level, items})
+        const power = Number(level)
+        const invetory = items ? items.split(", ") : []
+        finalObject.push({name : name, level : power, items: invetory})
 
     }
     console.log(JSON.stringify(finalObject))
