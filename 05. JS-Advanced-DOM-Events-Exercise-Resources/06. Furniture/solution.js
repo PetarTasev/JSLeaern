@@ -8,16 +8,15 @@ function solve() {
   buttons[1].addEventListener("click", buy);
 
   function generate(ev) {
-    console.log("we in");
+    
     // get the list of items
     let array = JSON.parse(document.getElementsByTagName("textarea")[0].value);
-    console.log(document.getElementsByTagName("textarea")[0]);
-    console.log(array);
+    
     // cicle thorough the items
     //for each create a img p p p
     // append them to the body tr
     for (let furniture of array) {
-      console.log("we in in ");
+      
       let list = document.querySelector("tbody");
 
       let tr = document.createElement("tr");
@@ -54,16 +53,14 @@ function solve() {
   }
   function buy(ev) {
     let items = [];
-    let price = [];
-    let estetic = [];
+    let price = 0;
+    let estetic= 0;
 
     let elements = document.querySelectorAll("input[type = checkbox]");
-    console.log(elements);
+    
     for (let box of elements) {
       if (box.checked) {
         const inputs = Array.from(box.parentElement.parentElement.children)
-        inputs.forEach(e => console.log(e.textContent))
-        console.log(inputs)
         items.push(inputs[1].textContent)
         
         price += Number(inputs[2].textContent)
@@ -72,18 +69,13 @@ function solve() {
       }
     }
     let averageESC = estetic / items.length
-
-
-    console.log(`Bought furniture: ${items.join(', ')}`)
-    console.log(`Total price: ${price}`)
-
-
     const output = document.getElementsByTagName("textarea")[1]
     // output.textContent += `Bought furniture: ${items.join(', ')}` += '\r\n' +
     //  `Total price: ${price}` + '\r\n' + `Average decoration factor: ${averageESC}`
 
     output.textContent += `Bought furniture: ${items.join(', ')}\r\n`
-    output.textContent += `Total price: ${price.toFixed(2)}\r\n`
-    output.textContent += `Bought furniture: ${items.join(', ')}`
+    
+    output.textContent += `Total price: ${Number(price).toFixed(2)}\r\n`
+    output.textContent += `Average decoration factor: ${averageESC}`
   }
 }
