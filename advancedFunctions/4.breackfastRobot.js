@@ -38,6 +38,7 @@ function logic() {
           neededFat = 10 * quantety;
           neededFla = 10 * quantety;
         },
+        
       };
 
       const restock = {
@@ -65,7 +66,7 @@ function logic() {
         },
         prepare(recepie, quantety) {
         ingrediants[recepie](quantety);
-          calc() 
+           return calc() 
         },
         report() {
           flavour = 23
@@ -88,7 +89,27 @@ function logic() {
         
       };
       function calc () {
-        //do the logic here
+        if (protein < neededP) {
+          return (`Error: not enough protein in stock`)
+        }
+        if (fat < neededFat) {
+          return (`Error: not enough fat in stock`)
+                }
+        if (carbohydrate < neededC) {
+          return (`Error: not enough carbohydrates in stock`)
+        }
+        if (flavour < flavour) {
+          return (`Error: not enough flacour} in stock`)
+        }
+        protein -= neededP
+        fat -= neededFat
+        carbohydrate -= neededC
+        flavour -= neededFla
+        neededC = 0
+        neededFat = 0
+        neededFla = 0
+        neededP = 0
+        console.log('we in')
       }
   return function (input) {
       let  [action, food, quantety] = input.split(' ')
