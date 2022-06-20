@@ -38,15 +38,16 @@ function logic() {
     },
     prepare(recepieAS, quantety) {
       const recepie = Object.entries(recepies[recepieAS])
-      recepie.forEach(ingredient => (ingredient[1] * quantety))
+      recepie.forEach(ingredient => ingredient[1] * quantety)
 
       for (let [ingredient, needed] of recepie) {
         if (stock[ingredient] < needed) {
           return `Error: not enough ${ingredient} in stock`
         }
       }
-      recepie.forEach(([ingredient, used]) => stock[ingredient] -= used)
-      return 'Success'
+      recepie.forEach(([ingredient, used]) => stock[ingredient] -= used);
+
+       return 'Success'
     },
     report() {
       return `protein=${stock.protein} carbohydrate=${stock.carbohydrate} fat=${stock.fat} flavour=${stock.flavour}`;
@@ -60,9 +61,11 @@ function logic() {
 }
 
 // let manager = logic();
-// console.log(manager("restock flavour 50")); // Success
+// console.log(manager("restock flavour 100")); // Success
 // console.log(manager("prepare lemonade 4")); // Error: not enough carbohydrate in stock
+// console.log(manager("restock carbohydrate 100")); // Success
+// console.log(manager("prepare lemonade 4")); 
 // console.log(manager("report")); // Error: not enough carbohydrate in stock
 
-// aut and be using the arrows you can move up and down a while row
+// // aut and be using the arrows you can move up and down a while row
 
