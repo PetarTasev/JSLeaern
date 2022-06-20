@@ -10,3 +10,4 @@ function add (n) {
     return inner;
 }
 console.log(add(2)(4)(8)(-2))
+// test dose it transit
