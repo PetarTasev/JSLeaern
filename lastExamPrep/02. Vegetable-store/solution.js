@@ -43,17 +43,17 @@ class VegetableStore {
       amount = Number(amount)
       let food = this.availableProducts.find(v => v.type == type)
       if (food) {
-        let given = this.availableProducts[ this.availableProducts.indexOf(food)]
+        let given = this.availableProducts[this.availableProducts.indexOf(food)]
         if (given.quantety >= amount) {
-          this.availableProducts[ this.availableProducts.indexOf(food)].quantety -= amount
-      
-        total += (amount * given.price)
+          this.availableProducts[this.availableProducts.indexOf(food)].quantety -= amount
+
+          total += (amount * given.price)
         } else {
           throw Error(`The quantity ${amount} for the vegetable ${type} is not available in the store, your current bill is $${total.toFixed(2)}.`)
-        
+
         }
       } else {
-          throw Error(`${type} is not available in the store, your current bill is $${total.toFixed(2)}.`)
+        throw Error(`${type} is not available in the store, your current bill is $${total.toFixed(2)}.`)
       }
     }
     return `Great choice! You must pay the following amount $${total.toFixed(2)}.`
@@ -65,24 +65,28 @@ class VegetableStore {
     if (food) {
       //let given = this.availableProducts[ this.availableProducts.indexOf(food)]
       if (food.quantety <= amount) {
-        this.availableProducts[ this.availableProducts.indexOf(food)].quantety = 0
-        return`The entire quantity of the ${type} has been removed.`
+        this.availableProducts[this.availableProducts.indexOf(food)].quantety = 0
+        return `The entire quantity of the ${type} has been removed.`
       } else {
-        this.availableProducts[ this.availableProducts.indexOf(food)].quantety -= amount
+        this.availableProducts[this.availableProducts.indexOf(food)].quantety -= amount
         return `Some quantity of the ${type} has been removed.`
       }
     } else {
-      throw Error (`${type} is not available in the store.`)
+      throw Error(`${type} is not available in the store.`)
     }
   }
 
-  revision () {
+  revision() {
     let final = []
     final.push("Available vegetables:")
 
-    for (let product of this.availableProducts) {
-      final.push(`${product.type}-${product.quantity}-$${product.price}`)
+    const copy = this.availableProducts
+
+    copy.sort((a,b) => a.price - b.price)
+    for (let product of copy) {
+      final.push(`${product.type}-${product.quantety}-$${product.price}`)
     }
     final.push(`The owner of the store is ${this.owner}, and the location is ${this.location}.`)
+    return final.join('\n')
   }
 }

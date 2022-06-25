@@ -1,0 +1,13 @@
+disable button 
+ --button.disabled = false 
+
+find if a given element from a arrya of objectas
+ --let food = this.availableProducts.find(v => v.type == type)
+finds the index of elemment food
+ ---this.availableProducts[this.availableProducts.indexOf(food)]
+
+if you get a element in dom and you change its parent its going 
+to automaticly move and and get removed from its previous location
+
+ev.preventDefault()
+

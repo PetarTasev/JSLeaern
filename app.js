@@ -82,7 +82,7 @@ function solve() {
 
     const child = ev.target.parentElement
 
-    //console.log(child.querySelector('div'))
+    console.log(child.querySelector('div'))
     const allDiv = child.querySelectorAll('div')
     for (let div of allDiv) {
       child.removeChild(div)
