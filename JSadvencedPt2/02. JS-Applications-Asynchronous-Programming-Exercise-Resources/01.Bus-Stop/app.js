@@ -7,6 +7,7 @@ function getInfo() {
     fetch(`${url}/${input.value}`)
         .then(response => response.json)
         .then(data => {
+            console.log(data)
             let name = data.name
             stopName.textContent = name
 
@@ -19,7 +20,8 @@ function getInfo() {
             })
     })
     .catch(error => {
-        stopName.textContent = 'Error'
+        console.log(error)
+        stopName.textContent = 'afdsasdError'
         buses.innerHTML = ''
     })
 }
