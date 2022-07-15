@@ -5,7 +5,7 @@ function getInfo() {
     const buses = document.getElementById('buses')
 
     fetch(`${url}/${input.value}`)
-        .then(response => response.json)
+        .then(response => response.json())
         .then(data => {
             console.log(data)
             let name = data.name
@@ -15,13 +15,13 @@ function getInfo() {
             buses.innerHTML = ''
             Object.keys(bus).forEach(vihecul => {
                 const li = document.createElement('li')
-                li.textContent = `Bus ${vihecul} arrices in ${bus[vihecul]} minutes`
+                li.textContent = `Bus ${vihecul} arrives in ${bus[vihecul]} minutes`
                 buses.appendChild(li)
             })
-    })
-    .catch(error => {
-        console.log(error)
-        stopName.textContent = 'afdsasdError'
-        buses.innerHTML = ''
-    })
+        })
+        .catch(error => {
+            console.log(error)
+            stopName.textContent = 'Error'
+            buses.innerHTML = ''
+        })
 }
