@@ -27,7 +27,7 @@ function solve() {
         fetch(`${url}/${curentStop}`)
             .then(info => info.json())
             .then(data => {
-                stopName = data.name
+                stopName = JSON.parse(JSON.stringify(data.name))
                 infoBox.textContent = `Next stop ${stopName}`
                 curentStop = data.next
             })
