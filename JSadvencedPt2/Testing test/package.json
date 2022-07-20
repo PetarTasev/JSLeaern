@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "playwright-chromium": "^1.23.4"
+  },
+  "dependencies": {
+    "chai": "^4.3.6"
   }
 }
