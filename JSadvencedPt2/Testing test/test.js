@@ -13,7 +13,7 @@ describe('EZE tests', async function () {
 
     it('works', async () => {
         await page.goto('http://localhost:5500')
-        await page.screenshot( {page: 'side.png'})
+        await page.screenshot( {path: `side.png`})
 
     })
 });
