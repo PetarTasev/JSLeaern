@@ -1,0 +1,14 @@
+const { chromium } = require('playwright-chromium');
+const { expect } = require('chai');
+
+let browser, page;// Declare reusable variables
+describe('EZE tests', function () {
+
+    before(async () => { browser = await chromium.launch(); });
+    after(async () => { await browser.close(); });
+    beforeEach(async () => { page = await browser.newPage(); });
+    afterEach(async () => { await page.close(); });
+
+
+    it
+}); I
