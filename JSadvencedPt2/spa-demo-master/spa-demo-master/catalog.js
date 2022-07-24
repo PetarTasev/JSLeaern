@@ -1,3 +1,6 @@
+import { addMovie } from "./create.js"
+
+
 const view = document.getElementById('catalogView')
 const lsit = document.querySelector('ul')
 view.remove()
@@ -14,6 +17,7 @@ export async function showCatalog() {
     movies.map(createHTML).forEach(e => fragment.appendChild(e))
 
     lsit.replaceChildren(fragment)
+    //addMovie
 }
 
 

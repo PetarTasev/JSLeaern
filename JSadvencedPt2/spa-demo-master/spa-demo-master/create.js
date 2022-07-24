@@ -1,5 +1,5 @@
 //const list = querySelector('ul') 
-const catalog = getElementBeId('catalogView')
+const catalog = getElementById('catalogView')
 
 
 export async function addMovie() {
