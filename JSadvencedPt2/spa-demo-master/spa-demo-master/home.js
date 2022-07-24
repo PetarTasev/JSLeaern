@@ -4,5 +4,4 @@ home.remove()
 
 export function homeView() {
     document.getElementById('views').replaceChildren(home)
-    console.log("we in")
 }
