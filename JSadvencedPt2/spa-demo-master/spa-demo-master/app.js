@@ -1,10 +1,14 @@
 import { homeView } from './home.js'
+import { showCatalog } from './catalog.js'
+import { showAbout } from './about.js'
 
 
 document.querySelector('nav').addEventListener('click', newPage)
 
 const location = {
-    homeBtn: homeView
+    homeBtn: homeView,
+    catalogBtn : showCatalog,
+    aboutBtn: showAbout
 }
 
 homeView()
