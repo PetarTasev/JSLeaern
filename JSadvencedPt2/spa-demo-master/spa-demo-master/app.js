@@ -7,6 +7,7 @@ import { registerView } from './register.js'
 
 
 document.querySelector('nav').addEventListener('click', newPage)
+document.getElementById('logoutBtn').addEventListener('click', )
 
 const location = {
     homeBtn: homeView,
