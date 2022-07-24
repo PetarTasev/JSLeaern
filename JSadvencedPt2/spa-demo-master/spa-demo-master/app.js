@@ -1,6 +1,9 @@
 import { homeView } from './home.js'
 import { showCatalog } from './catalog.js'
 import { showAbout } from './about.js'
+import { checkUserNav } from './check.js'
+import { logInView } from './login.js'
+import { registerView } from './register.js'
 
 
 document.querySelector('nav').addEventListener('click', newPage)
@@ -8,11 +11,13 @@ document.querySelector('nav').addEventListener('click', newPage)
 const location = {
     homeBtn: homeView,
     catalogBtn : showCatalog,
-    aboutBtn: showAbout
+    aboutBtn: showAbout,
+    loginBtn: logInView,
+    registerBtn: registerView
 }
 
 homeView()
-
+checkUserNav()
 function newPage(ev) {
     ev.preventDefault()
 
@@ -22,6 +27,7 @@ function newPage(ev) {
 
         if (typeof view == 'function') {
             ev.preventDefault()
+            console.log('im here')
             view()
         }
     }
