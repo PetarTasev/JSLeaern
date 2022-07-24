@@ -1,3 +1,4 @@
+import { showHome } from "./home.js"
 
 export function checkUserNav() {
     const userData = JSON.parse(sessionStorage.getItem('userData'))
@@ -11,6 +12,16 @@ export function checkUserNav() {
     }
 }
 
-export function onLogout() {
-    
+export async function onLogout() {
+    const userData = JSON.parse(sessionStorage.getItem('userData'))
+
+     fetch('http://localhost:3030//users/logout', {
+        method: 'get',
+        headers: {
+            'X-Authorization': userData.accessToken
+        }
+     })
+    sessionStorage.removeItem('userData')
+    checkUserNav()
+    showHome()
 }
