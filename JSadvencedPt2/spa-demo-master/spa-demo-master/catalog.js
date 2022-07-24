@@ -1,7 +1,25 @@
 const view = document.getElementById('catalogView')
+const lsit = document.querySelector('ul')
 view.remove()
 
-export function showCatalog() {
+export async function showCatalog() {
     document.getElementById('views').replaceChildren(view)
-    document.getElementById('views').replaceChild(view)
+    lsit.replaceChildren('Loading...')
+
+    const rev = await fetch('http://localhost:3030/data/movies')
+    const movies = await rev.json()
+
+    const fragment = document.createDocumentFragment()
+
+    movies.map(createHTML).forEach(e => fragment.appendChild(e))
+
+    lsit.replaceChildren(fragment)
+}
+
+
+
+function createHTML(movie) {
+    const li = document.createElement('li')
+    li.textContent = movie.title
+    return li
 }
