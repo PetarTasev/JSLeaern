@@ -1,13 +1,13 @@
 import { homeView } from './home.js'
 import { showCatalog } from './catalog.js'
 import { showAbout } from './about.js'
-import { checkUserNav } from './check.js'
+import { checkUserNav, onLogout } from './check.js'
 import { logInView } from './login.js'
 import { registerView } from './register.js'
 
 
 document.querySelector('nav').addEventListener('click', newPage)
-document.getElementById('logoutBtn').addEventListener('click', )
+document.getElementById('logoutBtn').addEventListener('click', onLogout)
 
 const location = {
     homeBtn: homeView,
