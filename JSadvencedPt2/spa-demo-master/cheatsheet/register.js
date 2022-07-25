@@ -54,3 +54,31 @@ async function onSubmit(event) {
         alert(err.message);
     }
 }
+
+
+ev.preventDefault()
+
+const formData = new FormData(form)
+
+const email = formData.get('email').trim()
+const password = formData.get('password').trim()
+const confirm = formData.get('repass').trim()
+
+console.log(email, password, confirm)
+
+
+try {
+
+    const res = await fetch('http://localhost:3030/users/register', {
+        method: 'post',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+    })
+
+}
+
+catch (err) {
+
+}
