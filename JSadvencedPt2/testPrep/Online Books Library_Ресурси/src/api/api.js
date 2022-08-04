@@ -13,7 +13,7 @@ async function requeset (method, url, data) {
         options.body = JSON.stringify(data)
     }
 
-    const userData = getUserData
+    const userData = getUserData()
     if (userData) {
         options.headers['X-Authorization'] = userData.accessToken
     }
