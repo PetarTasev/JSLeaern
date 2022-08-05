@@ -17,10 +17,45 @@ let editBookTemplate = (games) => html`
     <h1>Latest Games</h1>
 <!-- Display div: with information about every game (if any) -->
 ${games.length == 0 ? 
-html` <p class="no-articles">No games yet</p>`:
-html `<ul class="my-books-list">${games.map(recentGamesView)}</ul>`}
-
-<!-- Display paragraph: If there is no games  -->
+html`<p class="no-articles">No games yet</p>`:
+html `<div class="game">
+        <div class="image-wrap">
+            <img src=${games[0].imageUrl}>
+        </div>
+        <h3>${games[0].title}</h3>
+        <div class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+        <div class="data-buttons">
+            <a href="/details/${games[0]._id}" class="btn details-btn">Details</a>
+        </div>
+    </div>
+    
+    <div class="game">
+        <div class="image-wrap">
+            <img src=${games[1].imageUrl}>
+        </div>
+        <h3>${games[1].title}</h3>
+        <div class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+        <div class="data-buttons">
+            <a href="/details/${games[1]._id}" class="btn details-btn">Details</a>
+        </div>
+    </div>
+    
+    <div class="game">
+        <div class="image-wrap">
+            <img src=${games[2].imageUrl}>
+        </div>
+        <h3>${games[2].title}</h3>
+        <div class="rating">
+            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+        </div>
+        <div class="data-buttons">
+            <a href="/details/${games[2]._id}" class="details-btn">Details</a>
+        </div>
+    </div>`}
 
 </section>`
 
