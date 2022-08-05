@@ -1,4 +1,5 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
+import { editBook, getBookBeId } from "../api/data.js";
 
 
 let editBookTemplate = (book, onSubmit) => html`<section id="edit-page" class="edit">
@@ -45,7 +46,29 @@ export async function editBookPage(ctx) {
     let book = await getBookBeId(ctx.params.id)
 
     ctx.render(editBookTemplate(book, onSubmit))
-    async function onSubmit() {
-        console.log('hello there')
+    async function onSubmit(ev) {
+        ev.preventDefault()
+        
+        const form = new FormData(ev.target)
+
+        const title = form.get('title')
+        const description = form.get('description')
+        const imageUrl = form.get('imageUrl')
+        const type = form.get('type')
+
+        if (title.length == 0 || description.length == 0 ||imageUrl.length == 0) {
+            alert('All fields are  required!')
+            throw Error('All fields required!')
+        }
+
+        const data = {
+            title,
+            description,
+            imageUrl,
+            type
+        }
+
+        await editBook(ctx.params.id, data )
+        ctx.page.redirect('/')
     }
 }

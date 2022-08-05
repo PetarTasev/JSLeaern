@@ -20,10 +20,7 @@ let detailsTemplate = (book, isOwner, likes, onDelete) => html`
     </div>
     <div class="book-description">
         <h3>Description:</h3>
-        <p>Feyre's survival rests upon her ability to hunt and kill – the forest where she lives is a cold,
-            bleak place in the long winter months. So when she spots a deer in the forest being pursued by a
-            wolf, she cannot resist fighting it for the flesh. But to do so, she must kill the predator and
-            killing something so precious comes at a price ...</p>
+        <p>${book.description}</p>
     </div>
 </section>`
 
@@ -41,18 +38,18 @@ let bookControlsTemplate = (book, isOwner, onDelete) => {
 export async function detailsPage(ctx) {
     let userData = getUserData()
     let book = await getBookBeId(ctx.params.id)
+    console.log(ctx.params.id)
 
 
-    console.log(userData.id)
-    console.log(book._ownerId)
+    
     let isOwner =  userData.id == book._ownerId
-    console.log(isOwner)
+    
 
 
     ctx.render(detailsTemplate(book, isOwner, 0, onDelete))
 
     async function onDelete() {
-        await deleteBook(ctx.pareams.id)
+        await deleteBook(ctx.params.id)
         ctx.page.redirect('/')
     }
 }

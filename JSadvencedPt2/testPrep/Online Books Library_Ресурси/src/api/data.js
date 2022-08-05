@@ -17,11 +17,11 @@ export async function getBookBeId(id) {
 }
 
 export async function editBook(id, data) {
-    return api.put(`/data/books/${id}`, data)
+    return api.putA(`/data/books/${id}`, data)
 }
 
 export async function deleteBook(id) {
-    return api.del(`/data/books/${id}`)
+    return api.delA(`/data/books/${id}`)
 }
 
 export async function getMyBooks(userId) {

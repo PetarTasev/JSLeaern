@@ -54,12 +54,17 @@ export function addBookPage(ctx) {
         const imageUrl = form.get('imageUrl').trim()
         const type = form.get('type').trim()
 
+        if (title.length == 0 || description.length == 0 ||imageUrl.length == 0) {
+            alert('All fields are  required!')
+            throw Error('All fields required!')
+        }
         const data = {
             title,
             description,
             imageUrl,
             type
         }
+    
 
         await createBook(data)
         ctx.page.redirect('/')
