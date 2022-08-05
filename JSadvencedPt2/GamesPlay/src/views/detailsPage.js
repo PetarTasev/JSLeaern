@@ -9,7 +9,7 @@ let editBookTemplate = (game, isOwner, onDel) => html`<section id="game-details"
 
         <div class="game-header">
             <img class="game-img" src=${game.imageUrl} />
-            <h1>Bright</h1>
+            <h1>${game.title}</h1>
             <span class="levels">MaxLevel: ${game.maxLevel}</span>
             <p class="type">${game.category}</p>
         </div>
