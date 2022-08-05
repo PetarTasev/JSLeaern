@@ -9,7 +9,7 @@ export async function getAllBooks() {
 }
 
 export async function createBook(data) {
-    return api.post('/data/books', data)
+    return api.postA('/data/books', data)
 }
 
 export async function getBookBeId(id) {
@@ -25,7 +25,7 @@ export async function deleteBook(id) {
 }
 
 export async function getMyBooks(userId) {
-    return api.get(`/data/books?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`)
+    return api.getA(`/data/books?where=_ownerId%3D%22${userId}%22&sortBy=_createdOn%20desc`)
 }
 
 export async function likeBook(data) {
