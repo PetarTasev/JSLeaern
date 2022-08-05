@@ -23,3 +23,7 @@ export async function getGameById(id) {
 export async function delGame(id) {
     return api.del(`/data/games/${id}`)
 }
+
+export async function editGame(id, data) {
+    return api.put(`/data/games/${id}`, data)
+}
