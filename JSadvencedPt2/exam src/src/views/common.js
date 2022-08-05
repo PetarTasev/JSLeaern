@@ -1,7 +1,7 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 
 
-export const bookPreview = (book) => html`
+export const Preview = (book) => html`
 <li class="otherBooks">
 <h3>${book.title}</h3>
 <p>Type: ${book.type}</p>
