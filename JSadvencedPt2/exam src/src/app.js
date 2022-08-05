@@ -34,6 +34,7 @@ export function updateUserNav() {
 
 
 page(decorateContext)
+
 page('/', '/home')
 updateUserNav()
 page.start()
