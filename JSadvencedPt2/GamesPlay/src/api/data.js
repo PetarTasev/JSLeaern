@@ -15,3 +15,11 @@ export async function getAllRecentGames() {
 export async function createGame(data) {
     return api.post('/data/games', data)
 }
+
+export async function getGameById(id) {
+    return api.get(`/data/games/${id}`)
+}
+
+export async function delGame(id) {
+    return api.del(`/data/games/${id}`)
+}

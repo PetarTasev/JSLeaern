@@ -4,6 +4,8 @@ import { logout } from "./api/api.js";
 import { getUserData } from "./util.js"
 import { allGames } from "./views/allGamePage.js";
 import { createGamePage } from "./views/createGamePage.js";
+import { detailsView } from "./views/detailsPage.js";
+import { editBookPage } from "./views/editPage.js";
 import { homePage } from "./views/homePage.js";
 import { loginPage } from "./views/loginPage.js";
 import { registerPage } from "./views/registerPage.js";
@@ -42,9 +44,12 @@ page(decorateContext)
 page('/', '/home')
 page('/home', homePage)
 page('/login', loginPage)
+// page('/edit', editBookPage)
 page('/create', createGamePage)
 page('/allGames', allGames)
 page('/register', registerPage)
+page('/edit/:id', editBookPage)
+page('/details/:id', detailsView)
 updateUserNav()
 page.start()
 page.redirect('/')

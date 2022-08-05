@@ -7,7 +7,7 @@ export const gameView = (game) => html`
         <img src=${game.imageUrl}>
         <h6>${game.category}</h6>
         <h2>${game.title}</h2>
-        <a href="#" class="details-button">Details</a>
+        <a href="/details/${game._id}" class="details-button">Details</a>
     </div>`
 
     export const recentGamesView = (game) => html`
@@ -20,7 +20,7 @@ export const gameView = (game) => html`
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
         </div>
         <div class="data-buttons">
-            <a href="#" class="btn details-btn">Details</a>
+            <a href="/details/${game._id}" class="btn details-btn">Details</a>
         </div>
     </div>`
     
