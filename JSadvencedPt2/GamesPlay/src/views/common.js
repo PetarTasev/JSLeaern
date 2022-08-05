@@ -10,6 +10,7 @@ export const gameView = (game) => html`
         <a href="/details/${game._id}" class="details-button">Details</a>
     </div>`
 
+
     export const recentGamesView = (game) => html`
         <div class="game">
         <div class="image-wrap">
