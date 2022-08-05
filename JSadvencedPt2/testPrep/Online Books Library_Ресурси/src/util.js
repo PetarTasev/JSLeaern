@@ -1,7 +1,11 @@
 
 
 export function getUserData() {
-    return JSON.parse(sessionStorage.getItem('userData'))
+    const thing = JSON.parse(sessionStorage.getItem('userData'))
+    if (thing == null) {
+        return false
+    }
+    return thing
 }
 
 export function setUserData(data) {

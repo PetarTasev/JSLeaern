@@ -1,6 +1,6 @@
 import { html } from "../../node_modules/lit-html/lit-html.js";
 import { login } from "../api/data.js";
-import { getUserData, setUserData } from "../util.js";
+import { getUserData } from "../util.js";
 
 let loginTemplate = (onSubmit) => html`<section id="login-page" class="login">
 <form @submit=${onSubmit} id="login-form" action="" method="">
@@ -27,7 +27,6 @@ let loginTemplate = (onSubmit) => html`<section id="login-page" class="login">
 export function loginPage(ctx) {
     ctx.render(loginTemplate(onSubmit))
 
-
     async function onSubmit(ev) {
         ev.preventDefault()
         
@@ -42,7 +41,11 @@ export function loginPage(ctx) {
         }
         
         await login(email, password)
+
         ctx.updateUserNav()
-        ctx.page.redirect('/login')
+        getUserData()
+        ctx.page.redirect('/')
     }
+    
+    
 }

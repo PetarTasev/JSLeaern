@@ -42,7 +42,7 @@ export function registerPage(ctx) {
 
         let email = formData.get('email').trim()
         let password = formData.get('password').trim()
-        let repass = formData.get('repeat-pass').trim()
+        let repass = formData.get('confirm-pass').trim()
 
         
         if (email == '' || password == '') {

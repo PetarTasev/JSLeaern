@@ -1,8 +1,7 @@
 
-
 const host = 'http://localhost:3030'
 
-async function requeset (method, url, data) {
+async function requeset (method, url, data, acess = false) {
     const options = {
         method,
         headers: {}
@@ -13,8 +12,9 @@ async function requeset (method, url, data) {
         options.body = JSON.stringify(data)
     }
 
-    const userData = getUserData()
-    if (userData) {
+    
+    if (acess) {
+        const userData = getUserData()
         options.headers['X-Authorization'] = userData.accessToken
     }
 
@@ -61,32 +61,37 @@ export async function del(url) {
 }
 
 
+
+export async function getA(url) {
+    return requeset('get', url, false, true)
+}
+
+export async function postA(url, data) {
+    return requeset('post',url, data, true)
+}
+
+export async function putA(url, data) {
+    return requeset('put',url, data, true)
+}
+
+
+export async function delA(url) {
+    return requeset('delete', url, false, true)
+}
+
+
+
 export async function logIn(email, password) {
-    try {
-        const res = await fetch('http://localhost:3030/users/login', {
-            method: 'post',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({email, password})
-        }) 
+    const result = await post('/users/login', {email, password})
 
-        if (res.ok == false) {
-            const error = await res.json()
-            throw Error(error.message)
-        }
-        const data = await res.json()
-        
-        const userData = {
-            email: data.email,
-            accessToken: data.accessToken,
-            id: data._id
-        }
-
-        setUserData(userData)
-    } catch(err) {
-        alert(err.message)
+    let userData = {
+        email: result.email,
+        id: result._id,
+        accessToken: result.accessToken
     }
+
+    setUserData(userData)
+    return result
 }
 
 export async function regester(email, password) {
@@ -108,7 +113,7 @@ export async function logout() {
 }
 
 export function getUserData() {
-    return JSON.stringify(sessionStorage.getItem('userData'))
+    return JSON.parse(sessionStorage.getItem('userData'))
 }
 
 export function setUserData(data) {

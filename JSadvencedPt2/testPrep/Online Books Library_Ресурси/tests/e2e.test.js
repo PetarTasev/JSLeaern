@@ -41,7 +41,7 @@ describe('E2E tests', function () {
     });
 
     // Test proper
-    describe('Authentication [ 20 Points ]', () => {
+      describe('Authentication [ 20 Points ]', () => {
         it('register does not work with empty fields [ 5 Points ]', async () => {
             const { post } = await createHandler(endpoints.register, { post: {} });
 
@@ -108,7 +108,7 @@ describe('E2E tests', function () {
             expect(postData.password).to.equal(data.password);
         });
 
-        it('logout makes correct API call [ 5 Points ]', async () => {
+         it('logout makes correct API call [ 5 Points ]', async () => {
             const data = mockData.users[0];
             const { post: loginPost } = await createHandler(endpoints.login, { post: data });
             const { get: logoutGet } = await createHandler(endpoints.logout, { get: { data: '', options: { json: false, status: 204 } } });
