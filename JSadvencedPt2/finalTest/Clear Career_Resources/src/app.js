@@ -5,7 +5,7 @@ import { getUserData } from "./util.js"
 import { createOffrePage } from "./views/createOffer.js";
 import { dashBoard } from "./views/dashBoard.js";
 import { detailsPage } from "./views/detailsPage.js";
-import { editOFfer } from "./views/editPage.js";
+import { editOffer } from "./views/editPage.js";
 import { homePage } from "./views/homePage.js";
 import { loginPage } from "./views/loginPage.js";
 import { registerPage } from "./views/registerPage.js";
@@ -46,7 +46,7 @@ page('/home', homePage)
 page('/dashboard', dashBoard)
 page('/create', createOffrePage)
 page('/details/:id', detailsPage)
-page('/edit/:id', editOFfer)
+page('/edit/:id', editOffer)
 page('/login', loginPage)
 page('/register', registerPage)
 updateUserNav()

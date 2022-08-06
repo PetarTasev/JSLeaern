@@ -18,7 +18,7 @@ let editBookTemplate = (games) => html`
 <!-- Display div: with information about every game (if any) -->
 ${games.length == 0 ? 
 html`<p class="no-articles">No games yet</p>`:
-html`${books.map(recentGamesView)}`}`
+html`${games.map(recentGamesView)}`}`
 
 
 export async function homePage(ctx) {
