@@ -2,11 +2,16 @@ import { render } from "../node_modules/lit-html/lit-html.js";
 import page from "../node_modules/page/page.mjs"
 import { logout } from "./api/api.js";
 import { getUserData } from "./util.js"
+import { createOffrePage } from "./views/createOffer.js";
+import { dashBoard } from "./views/dashBoard.js";
+import { detailsPage } from "./views/detailsPage.js";
+import { editOFfer } from "./views/editPage.js";
+import { homePage } from "./views/homePage.js";
 import { loginPage } from "./views/loginPage.js";
 import { registerPage } from "./views/registerPage.js";
 
 
-let root = document.getElementById('site-content')
+let root = document.getElementById('main')
 
 const del = document.getElementById('logoutBtn')
 del.addEventListener('click', (e) => {
@@ -25,12 +30,11 @@ function decorateContext(ctx, next) {
 export function updateUserNav() {
     const userData = getUserData()
     if (userData) {
-        document.getElementById('user').style.display = 'inline-block'
-        document.getElementById('guest').style.display = 'none'
-        document.querySelector('#user span').textContent = `Welcome, ${userData.email}`
+        document.querySelector('.user').style.display = 'inline-block'
+        document.querySelector('.guest').style.display = 'none'
     } else {
-        document.getElementById('user').style.display = 'none'
-        document.getElementById('guest').style.display = 'inline-block'
+        document.querySelector('.user').style.display = 'none'
+        document.querySelector('.guest').style.display = 'inline-block'
     }
 }
 
@@ -38,6 +42,11 @@ export function updateUserNav() {
 page(decorateContext)
 
 page('/', '/home')
+page('/home', homePage)
+page('/dashboard', dashBoard)
+page('/create', createOffrePage)
+page('/details/:id', detailsPage)
+page('/edit/:id', editOFfer)
 page('/login', loginPage)
 page('/register', registerPage)
 updateUserNav()
