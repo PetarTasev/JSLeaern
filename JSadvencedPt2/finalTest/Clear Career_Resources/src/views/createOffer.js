@@ -66,11 +66,11 @@ export async function createOffrePage(ctx) {
         let category = formData.get('category').trim()
         let description = formData.get('description').trim()
         let requirements = formData.get('requirements').trim()
-        let salary = formData.get('requirements').trim()
+        let salary = formData.get('salary').trim()
         
         if (title.length == 0 || imageUrl.length == 0 ||category.length == 0 ||description.length == 0 ||requirements.length == 0 ||salary.length == 0) {
             alert('All fields are required')
-            throw Error('All fields are required')
+            throw Error ('All fields are required')
         }
 
         const data = {
